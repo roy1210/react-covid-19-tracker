@@ -30,6 +30,10 @@ v1.22.4
 - [classnames](https://github.com/JedWatson/classnames)
   - A simple javascript utility for conditionally joining classNames together
 
+## API
+
+- [covid19.mathdro.id](https://covid19.mathdro.id/api)
+
 ## Package manager
 
 - [yarn](https://yarnpkg.com/)
