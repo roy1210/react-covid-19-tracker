@@ -29,6 +29,8 @@ v1.22.4
   - React wrapper for Chart.js
 - [classnames](https://github.com/JedWatson/classnames)
   - A simple javascript utility for conditionally joining classNames together
+- [react-countup](https://github.com/glennreyes/react-countup)
+  - A configurable React component wrapper around CountUp.js
 
 ## API
 
