@@ -38,7 +38,7 @@ class App extends Component {
           <Title />
           {/* <Cards data={data} /> */}
           {/* <CountryPicker handleCountryChange={this.handleCountryChange} /> */}
-          {/* <Chart data={data} country={country} /> */}
+          <Chart data={data} country={country} />
 
         </div>
         <FooterPush />
