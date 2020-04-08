@@ -12,10 +12,10 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate, stillInfected
     <div className={styles.container}>
       {/* Memo: cx: apply multiple classes */}
       <Grid container spacing={3} justify="center">
-        <Grid item xs={12} md={3} component={Card} className={cx(styles.card, styles.infected)}>
+        <Grid item xs={12} md={2} component={Card} className={cx(styles.card, styles.infected)}>
           <CardContent>
             <Typography color="textSecondary" gutterBottom>
-              Infected
+              Total infected
             </Typography>
             <Typography variant="h5">
               <CountUp
@@ -29,12 +29,34 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate, stillInfected
               {new Date(lastUpdate).toDateString()}
             </Typography>
             <Typography variant="body2">
-              Number of active cases of COVID-19
+              Number of patient still infected of COVID-19
             </Typography>
           </CardContent>
         </Grid>
 
-        <Grid item xs={12} md={3} component={Card} className={cx(styles.card, styles.recovered)}>
+        <Grid item xs={12} md={2} component={Card} className={cx(styles.card, styles.infecting)}>
+          <CardContent>
+            <Typography color="textSecondary" gutterBottom>
+              Still infected
+            </Typography>
+            <Typography variant="h5">
+              <CountUp
+                start={0}
+                end={stillInfected}
+                duration={2.5}
+                separator=","
+              />
+            </Typography>
+            <Typography color="textSecondary">
+              {new Date(lastUpdate).toDateString()}
+            </Typography>
+            <Typography variant="body2">
+              Number of patient recovered from COVID-19
+            </Typography>
+          </CardContent>
+        </Grid>
+
+        <Grid item xs={12} md={2} component={Card} className={cx(styles.card, styles.recovered)}>
           <CardContent>
             <Typography color="textSecondary" gutterBottom>
               Recovered
@@ -51,12 +73,12 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate, stillInfected
               {new Date(lastUpdate).toDateString()}
             </Typography>
             <Typography variant="body2">
-              Number of recoveries from COVID-19
+              Number of patient killed by COVID-19
             </Typography>
           </CardContent>
         </Grid>
 
-        <Grid item xs={12} md={3} component={Card} className={cx(styles.card, styles.deaths)}>
+        <Grid item xs={12} md={2} component={Card} className={cx(styles.card, styles.deaths)}>
           <CardContent>
             <Typography color="textSecondary" gutterBottom>
               Deaths
