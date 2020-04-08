@@ -41,7 +41,8 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate, stillInfected
 
       <div className={styles.container}>
         <Grid container spacing={3} justify="center">
-          {confirmed && cards.map(card => (
+          <h1>test</h1>
+          {/* {confirmed && cards.map(card => (
             <Grid item xs={12} md={2} component={Card} className={cx(styles.card, card.class)} key={card.title} >
               <CardContent>
                 <Typography color="textSecondary" gutterBottom>
@@ -63,7 +64,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate, stillInfected
                 </Typography>
               </CardContent>
             </Grid>
-          ))}
+          ))} */}
         </Grid>
       </div>
     )
