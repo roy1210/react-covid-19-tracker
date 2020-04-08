@@ -33,16 +33,16 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate, stillInfected
     },
   ]
 
-  if (!confirmed) {
-    return 'Loading...'
-  } else {
-    return (
-      // Memo: cx: apply multiple classes
+  // if (!confirmed) {
+  //   return 'Loading...'
+  // } else {
+  return (
+    // Memo: cx: apply multiple classes
 
-      <div className={styles.container}>
-        <Grid container spacing={3} justify="center">
-          <h1>test</h1>
-          {/* {confirmed && cards.map(card => (
+    <div className={styles.container}>
+      <Grid container spacing={3} justify="center">
+        <h1>test</h1>
+        {/* {confirmed && cards.map(card => (
             <Grid item xs={12} md={2} component={Card} className={cx(styles.card, card.class)} key={card.title} >
               <CardContent>
                 <Typography color="textSecondary" gutterBottom>
@@ -65,10 +65,10 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate, stillInfected
               </CardContent>
             </Grid>
           ))} */}
-        </Grid>
-      </div>
-    )
-  }
+      </Grid>
+    </div>
+  )
 }
+// }
 
 export default Cards
