@@ -6,11 +6,7 @@ import cx from 'classnames'
 
 const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate, stillInfected } }) => {
 
-  if (!confirmed) {
-    return 'Loading...'
-  }
-
-  const cards = [
+  const cards = confirmed && [
     {
       title: 'Total Infected',
       class: styles.infected,
@@ -37,37 +33,41 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate, stillInfected
     },
   ]
 
-  return (
-    // Memo: cx: apply multiple classes
+  if (!confirmed) {
+    return 'Loading...'
+  } else {
+    return (
+      // Memo: cx: apply multiple classes
 
-    <div className={styles.container}>
-      <Grid container spacing={3} justify="center">
-        {cards.map(card => (
-          <Grid item xs={12} md={2} component={Card} className={cx(styles.card, card.class)} key={card.title} >
-            <CardContent>
-              <Typography color="textSecondary" gutterBottom>
-                {card.title}
-              </Typography>
-              <Typography variant="h5">
-                <CountUp
-                  start={0}
-                  end={card.end}
-                  duration={2.5}
-                  separator=","
-                />
-              </Typography>
-              <Typography color="textSecondary">
-                {new Date(lastUpdate).toDateString()}
-              </Typography>
-              <Typography variant="body2">
-                {card.text}
-              </Typography>
-            </CardContent>
-          </Grid>
-        ))}
-      </Grid>
-    </div>
-  )
+      <div className={styles.container}>
+        <Grid container spacing={3} justify="center">
+          {cards.map(card => (
+            <Grid item xs={12} md={2} component={Card} className={cx(styles.card, card.class)} key={card.title} >
+              <CardContent>
+                <Typography color="textSecondary" gutterBottom>
+                  {card.title}
+                </Typography>
+                <Typography variant="h5">
+                  <CountUp
+                    start={0}
+                    end={card.end}
+                    duration={2.5}
+                    separator=","
+                  />
+                </Typography>
+                <Typography color="textSecondary">
+                  {new Date(lastUpdate).toDateString()}
+                </Typography>
+                <Typography variant="body2">
+                  {card.text}
+                </Typography>
+              </CardContent>
+            </Grid>
+          ))}
+        </Grid>
+      </div>
+    )
+  }
 }
 
 export default Cards

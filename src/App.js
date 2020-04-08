@@ -36,7 +36,7 @@ class App extends Component {
       <>
         <div className={styles.container}>
           <Title />
-          {/* <Cards data={data} /> */}
+          <Cards data={data} />
           <CountryPicker handleCountryChange={this.handleCountryChange} />
           <Chart data={data} country={country} />
 
