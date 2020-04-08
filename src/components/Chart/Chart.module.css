@@ -5,8 +5,23 @@
   max-width: 1000px;
 }
 
+.urgentImg {
+  position: absolute;
+  align-self: center;
+  width: 20%;
+  height: 20%;
+  min-width: 420px;
+  min-height: 180px;
+  opacity: 0.2;
+}
+
 @media (max-width: 770px) {
   .container {
     width: 100%;
+  }
+}
+@media (max-width: 960px) {
+  .urgentImg {
+    display: none;
   }
 }

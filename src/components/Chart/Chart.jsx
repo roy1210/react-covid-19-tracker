@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { fetchDailyData } from '../../api'
 import styles from './Chart.module.css'
 import { Line, Bar } from "react-chartjs-2"
+import urgentImg from '../../images/title-urgent.png'
 
-const Chart = ({ data: { confirmed, deaths, recovered }, country }) => {
+const Chart = ({ data: { confirmed, deaths, recovered, stillInfected }, country }) => {
   const [dailyData, setDailyData] = useState([])
 
   useEffect(() => {
@@ -29,11 +30,12 @@ const Chart = ({ data: { confirmed, deaths, recovered }, country }) => {
             fill: true
           }, {
             data: dailyData.map(({ deaths }) => deaths),
-            label: 'infected',
+            label: 'deaths',
             borderColor: 'red',
             backgroundColor: 'rgba(255,0,0,0.5)',
             fill: true
-          }]
+          }
+          ]
         }}
       />)
       : null);
@@ -43,15 +45,16 @@ const Chart = ({ data: { confirmed, deaths, recovered }, country }) => {
       (
         <Bar
           data={{
-            labels: ['Infected', 'Recovered', 'Deaths'],
+            labels: ['Total infected', 'Still infected', 'Recovered', 'Deaths'],
             datasets: [{
               label: 'People',
               backgroundColor: [
-                'rgba(0, 0, 255, 0.5)',
-                'rgba(0, 255, 0, 0.5)',
-                'rgba(255, 0, 0, 0.5)'
+                'rgba(0, 0, 255, 0.7)',
+                'rgba(248, 148, 6, 0.7)',
+                'rgba(0, 255, 0, 0.7)',
+                'rgba(255, 0, 0, 0.7)'
               ],
-              data: [confirmed.value, recovered.value, deaths.value]
+              data: [confirmed.value, stillInfected, recovered.value, deaths.value]
             }]
           }}
           options={{
@@ -65,6 +68,7 @@ const Chart = ({ data: { confirmed, deaths, recovered }, country }) => {
   return (
     <div className={styles.container}>
       {country ? barChart : lineChart}
+      <img src={urgentImg} alt="urgent" className={styles.urgentImg} />
     </div>
   )
 }

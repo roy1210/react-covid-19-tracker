@@ -11,7 +11,14 @@ export const fetchData = async (country) => {
     // Memo: Destructuring and destructuring again
     const { data: { confirmed, recovered, deaths, lastUpdate } } = await axios.get(changeableUrl)
 
-    return { confirmed, recovered, deaths, lastUpdate }
+    const modifiedData = {
+      confirmed,
+      recovered,
+      deaths,
+      lastUpdate,
+      stillInfected: confirmed.value - recovered.value
+    }
+    return modifiedData
   } catch (error) {
     console.error(error)
   }

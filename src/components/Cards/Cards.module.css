@@ -9,6 +9,11 @@
 .infected {
   border-bottom: 10px solid rgba(0, 0, 255, 0.5);
 }
+
+.infecting {
+  border-bottom: 10px solid rgba(248, 148, 6, 0.5);
+}
+
 .recovered {
   border-bottom: 10px solid rgba(0, 255, 0, 0.5);
 }
